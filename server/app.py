@@ -6,3 +6,7 @@ from server.environment import CropDoctorEnvironment
 from models import CropAction, CropObservation
 
 app = create_fastapi_app(CropDoctorEnvironment, CropAction, CropObservation)
+
+@app.get("/")
+def root():
+    return {"status": "ok", "env": "crop_doctor_env", "version": "1.0.0"}
