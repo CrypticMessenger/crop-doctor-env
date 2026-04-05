@@ -67,6 +67,14 @@ class CropDoctorEnvironment(Environment):
 
     def step(self, action: CropAction, **kwargs) -> CropObservation:
         ep = self._episode
+        if not ep:
+            return CropObservation(
+                done=True, reward=0.0,
+                crop_info="", tool_result="Error: call reset() before step().",
+                findings_so_far="", available_tools=[],
+                budget_remaining=0, days_remaining=0, lab_slots_remaining=0,
+                step_number=0, message="Must call reset() first.",
+            )
         self._state.step_count += 1
         tool_name = action.tool.strip()
 
@@ -162,8 +170,13 @@ class CropDoctorEnvironment(Environment):
 
     def _make_obs(self, reward: float, done: bool, tool_result: str, message: str) -> CropObservation:
         ep = self._episode
+        if not ep:
+            return CropObservation(done=done, reward=round(reward, 4), crop_info="",
+                tool_result=tool_result, findings_so_far="", available_tools=[],
+                budget_remaining=0, days_remaining=0, lab_slots_remaining=0,
+                step_number=0, message=message)
         findings_text = "\n".join(f"- [{f['tool']}]: {f['result'][:100]}" for f in self._findings[-5:]) or "No findings yet."
-        steps_left = ep["max_steps"] - self._state.step_count
+        steps_left = ep.get("max_steps", 15) - self._state.step_count
         if steps_left <= 3 and not done:
             message += f" ⚠️ WARNING: Only {steps_left} steps remaining! Consider submitting your diagnosis."
         return CropObservation(
