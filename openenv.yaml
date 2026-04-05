@@ -1,0 +1,3 @@
+name: crop_doctor_env
+version: "1.0.0"
+description: "AI Agricultural Disease Diagnosis — an RL environment where agents investigate crop failures in Indian farms using 21 diagnostic tools under budget and time constraints."

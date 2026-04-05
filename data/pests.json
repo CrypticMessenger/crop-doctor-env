@@ -1,0 +1,110 @@
+{
+  "stem_borer": {
+    "crops": ["rice"],
+    "symptoms": {
+      "leaves": "Central leaf whorl dries up (dead heart) in vegetative stage",
+      "stem": "Bore holes at base of stem, frass (sawdust-like excrement) visible, hollow stem when cut",
+      "roots": "No significant root symptoms",
+      "fruit": "White empty panicles (white ear) that can be pulled out easily",
+      "pest_visible": "Yellow-brown larvae 2-3cm inside stem, adult moths with brown wings"
+    },
+    "favorable_conditions": "Continuous rice cropping, stubble left in field, high nitrogen",
+    "treatment": {"insecticide": "chlorantraniliprole", "cultural": "remove stubble after harvest, light traps for moths, avoid excess nitrogen"}
+  },
+  "leaf_folder": {
+    "crops": ["rice"],
+    "symptoms": {
+      "leaves": "Leaves folded longitudinally with silk threads, scraping damage inside fold, white streaks on leaves",
+      "stem": "No significant stem symptoms",
+      "roots": "No significant root symptoms",
+      "fruit": "Reduced grain filling if severe",
+      "pest_visible": "Green translucent larvae inside folded leaves, small brown moths"
+    },
+    "favorable_conditions": "High nitrogen, dense planting, shaded humid conditions",
+    "treatment": {"insecticide": "cartap_hydrochloride", "cultural": "avoid excess nitrogen, maintain field hygiene"}
+  },
+  "aphid": {
+    "crops": ["wheat", "cotton", "mustard", "potato"],
+    "symptoms": {
+      "leaves": "Curling and yellowing of young leaves, sticky honeydew on leaf surface, black sooty mold growth",
+      "stem": "Clusters of small soft-bodied insects on tender shoots and growing tips",
+      "roots": "No significant root symptoms",
+      "fruit": "Reduced seed/grain size, shriveled pods in mustard",
+      "pest_visible": "Small 1-3mm green/black/yellow soft-bodied insects in dense colonies, winged and wingless forms"
+    },
+    "favorable_conditions": "Cool dry weather 15-25°C, lush green growth, absence of natural predators",
+    "treatment": {"insecticide": "imidacloprid", "cultural": "conserve natural enemies (ladybirds, lacewings), yellow sticky traps, neem oil spray"}
+  },
+  "armyworm": {
+    "crops": ["wheat"],
+    "symptoms": {
+      "leaves": "Irregular chewing damage on leaf margins, leaves eaten from edges inward, skeletonized leaves",
+      "stem": "Larvae may cut young plants at base",
+      "roots": "No significant root symptoms",
+      "fruit": "Ear heads partially eaten, grain damage",
+      "pest_visible": "Green-brown caterpillars 3-4cm with stripes, feed at night, hide in soil during day"
+    },
+    "favorable_conditions": "Warm humid weather after dry spell, dense crop, weedy fields",
+    "treatment": {"insecticide": "emamectin_benzoate", "cultural": "deep ploughing, weed management, bird perches"}
+  },
+  "bollworm": {
+    "crops": ["cotton"],
+    "symptoms": {
+      "leaves": "Minor feeding damage on tender leaves and growing tips",
+      "stem": "No significant stem symptoms",
+      "roots": "No significant root symptoms",
+      "fruit": "Circular bore holes in bolls, frass visible at entry point, damaged lint and seeds inside, premature boll opening",
+      "pest_visible": "Green to brown larvae 3-4cm with dark stripes, found inside bolls, adult moths grayish-brown"
+    },
+    "favorable_conditions": "Warm weather 25-35°C, continuous cotton cropping, late-planted crop",
+    "treatment": {"insecticide": "spinosad", "cultural": "Bt cotton varieties, pheromone traps, early planting, destroy crop residue"}
+  },
+  "whitefly": {
+    "crops": ["cotton", "tomato"],
+    "symptoms": {
+      "leaves": "Yellowing, downward curling, sticky honeydew, black sooty mold, leaf drying in severe cases",
+      "stem": "No significant stem symptoms",
+      "roots": "No significant root symptoms",
+      "fruit": "Irregular ripening in tomato, reduced boll weight in cotton",
+      "pest_visible": "Tiny 1-2mm white-winged insects on leaf underside, fly up in cloud when disturbed"
+    },
+    "favorable_conditions": "Hot dry weather 30-35°C, continuous cropping, absence of natural enemies",
+    "treatment": {"insecticide": "spiromesifen", "cultural": "yellow sticky traps, neem oil, conserve natural enemies, avoid broad-spectrum insecticides"}
+  },
+  "fruit_borer": {
+    "crops": ["tomato"],
+    "symptoms": {
+      "leaves": "Minor feeding on leaves and flowers",
+      "stem": "No significant stem symptoms",
+      "roots": "No significant root symptoms",
+      "fruit": "Circular bore holes in fruits, larva feeds inside causing rotting, frass at entry point",
+      "pest_visible": "Green larvae with dark bands 2-3cm inside fruits, adult moth yellowish-brown with dark spots on wings"
+    },
+    "favorable_conditions": "Warm weather, fruiting stage, continuous tomato cropping",
+    "treatment": {"insecticide": "spinosad", "cultural": "pheromone traps, collect and destroy damaged fruits, neem seed kernel extract"}
+  },
+  "tuber_moth": {
+    "crops": ["potato"],
+    "symptoms": {
+      "leaves": "Leaf mining — irregular translucent patches where larvae feed between leaf surfaces",
+      "stem": "Larvae may bore into stems near soil level",
+      "roots": "Tunnels inside tubers with frass, tuber surface shows small entry holes",
+      "fruit": "Extensive tunneling inside stored and field tubers",
+      "pest_visible": "Small grey-brown moths 1cm, pinkish-white larvae in tuber tunnels"
+    },
+    "favorable_conditions": "Warm dry weather, exposed tubers (poor earthing up), poor storage conditions",
+    "treatment": {"insecticide": "quinalphos", "cultural": "proper earthing up, harvest on time, cold storage, destroy infested tubers"}
+  },
+  "painted_bug": {
+    "crops": ["mustard"],
+    "symptoms": {
+      "leaves": "Wilting and drying of young seedlings, sucking damage on leaves",
+      "stem": "Bugs cluster on tender stems and growing points",
+      "roots": "No significant root symptoms",
+      "fruit": "Shriveled pods, poor seed filling",
+      "pest_visible": "Shield-shaped bugs 6-8mm with orange-red and black markings, found in clusters on plants"
+    },
+    "favorable_conditions": "Warm sunny weather, seedling stage most vulnerable, dry conditions",
+    "treatment": {"insecticide": "malathion", "cultural": "early sowing to escape peak population, clean cultivation, remove weed hosts"}
+  }
+}

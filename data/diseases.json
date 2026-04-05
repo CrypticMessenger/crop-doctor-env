@@ -1,0 +1,223 @@
+{
+  "blast": {
+    "type": "fungal",
+    "pathogen": "Magnaporthe oryzae",
+    "crops": ["rice"],
+    "symptoms": {
+      "leaves": "Diamond-shaped lesions with gray center and dark brown border, 1-2cm long",
+      "stem": "Dark brown-black lesions at nodes, may cause neck rot and stem breakage",
+      "roots": "No significant root symptoms",
+      "fruit": "Panicle neck turns brown-black, grains shrivel and turn chalky"
+    },
+    "favorable_conditions": "High humidity >90%, temperature 25-28°C, excessive nitrogen fertilization",
+    "treatment": {"fungicide": "tricyclazole", "cultural": "reduce nitrogen application, improve drainage"}
+  },
+  "bacterial_blight": {
+    "type": "bacterial",
+    "pathogen": "Xanthomonas oryzae",
+    "crops": ["rice"],
+    "symptoms": {
+      "leaves": "Water-soaked yellowish stripes along leaf margins, turning white then gray, leaves dry from tip",
+      "stem": "Amber-colored bacterial ooze on cut stems in morning",
+      "roots": "No significant root symptoms",
+      "fruit": "Incomplete grain filling, chalky grains"
+    },
+    "favorable_conditions": "Warm temperature 25-34°C, high humidity, strong winds, flooding",
+    "treatment": {"bactericide": "streptomycin_sulphate", "cultural": "balanced fertilization, avoid excess nitrogen, drain fields"}
+  },
+  "sheath_rot": {
+    "type": "fungal",
+    "pathogen": "Sarocladium oryzae",
+    "crops": ["rice"],
+    "symptoms": {
+      "leaves": "Oblong brown lesions on uppermost leaf sheath enclosing panicle",
+      "stem": "Rotting of flag leaf sheath, white powdery fungal growth inside",
+      "roots": "No significant root symptoms",
+      "fruit": "Panicle partially emerges or remains trapped, unfilled grains"
+    },
+    "favorable_conditions": "High humidity, insect damage to sheath, dense planting",
+    "treatment": {"fungicide": "carbendazim", "cultural": "proper spacing, control stem borers"}
+  },
+  "rust": {
+    "type": "fungal",
+    "pathogen": "Puccinia triticina",
+    "crops": ["wheat"],
+    "symptoms": {
+      "leaves": "Orange-brown oval pustules scattered on upper leaf surface, powdery spores released when touched",
+      "stem": "Occasional elongated pustules on stem sheath, dark brown to black",
+      "roots": "No significant root symptoms",
+      "fruit": "Shriveled grains with reduced weight"
+    },
+    "favorable_conditions": "Cool nights 15-20°C, warm days, high humidity, dew formation",
+    "treatment": {"fungicide": "propiconazole", "cultural": "early sowing, resistant varieties"}
+  },
+  "smut": {
+    "type": "fungal",
+    "pathogen": "Ustilago tritici",
+    "crops": ["wheat"],
+    "symptoms": {
+      "leaves": "No significant leaf symptoms until heading",
+      "stem": "Normal appearance until ear emergence",
+      "roots": "No significant root symptoms",
+      "fruit": "Entire ear replaced by mass of black powdery spores, sori covered by thin membrane that ruptures"
+    },
+    "favorable_conditions": "Seed-borne infection, moderate temperature 20-25°C during flowering",
+    "treatment": {"fungicide": "carboxin_seed_treatment", "cultural": "use certified disease-free seed"}
+  },
+  "karnal_bunt": {
+    "type": "fungal",
+    "pathogen": "Tilletia indica",
+    "crops": ["wheat"],
+    "symptoms": {
+      "leaves": "No significant leaf symptoms",
+      "stem": "No significant stem symptoms",
+      "roots": "No significant root symptoms",
+      "fruit": "Partial conversion of grain to black powdery mass, fishy smell, only part of kernel affected"
+    },
+    "favorable_conditions": "Cool temperature 18-22°C with high humidity during flowering",
+    "treatment": {"fungicide": "propiconazole_spray_at_flowering", "cultural": "avoid late sowing, resistant varieties"}
+  },
+  "wilt": {
+    "type": "fungal",
+    "pathogen": "Fusarium oxysporum",
+    "crops": ["cotton", "tomato"],
+    "symptoms": {
+      "leaves": "Yellowing and wilting starting from lower leaves, progressing upward, one-sided wilting common",
+      "stem": "Brown discoloration of vascular tissue visible when stem is cut lengthwise",
+      "roots": "Darkened, partially decayed root system with brown vascular strands",
+      "fruit": "Premature fruit drop, small undersized fruits"
+    },
+    "favorable_conditions": "Warm soil 25-30°C, acidic soil pH, poor drainage, nematode damage",
+    "treatment": {"fungicide": "carbendazim_soil_drench", "cultural": "crop rotation, raise soil pH with lime, resistant varieties"}
+  },
+  "leaf_curl": {
+    "type": "viral",
+    "pathogen": "Cotton leaf curl virus (CLCuV)",
+    "crops": ["cotton"],
+    "symptoms": {
+      "leaves": "Upward or downward curling of leaves, thickened veins, dark green vein swelling (enations) on underside",
+      "stem": "Stunted growth, shortened internodes",
+      "roots": "No significant root symptoms",
+      "fruit": "Severely reduced boll formation, small deformed bolls"
+    },
+    "favorable_conditions": "High whitefly population, warm temperature 25-35°C, continuous cotton cropping",
+    "treatment": {"insecticide": "imidacloprid_for_whitefly_vector", "cultural": "remove infected plants, control whitefly, resistant varieties"}
+  },
+  "grey_mildew": {
+    "type": "fungal",
+    "pathogen": "Ramularia areola",
+    "crops": ["cotton"],
+    "symptoms": {
+      "leaves": "Angular pale spots on upper surface with white-grey powdery growth on lower surface",
+      "stem": "No significant stem symptoms",
+      "roots": "No significant root symptoms",
+      "fruit": "Premature defoliation reduces boll weight"
+    },
+    "favorable_conditions": "High humidity >80%, temperature 25-30°C, dense canopy",
+    "treatment": {"fungicide": "copper_oxychloride", "cultural": "proper spacing, avoid excess nitrogen"}
+  },
+  "early_blight": {
+    "type": "fungal",
+    "pathogen": "Alternaria solani",
+    "crops": ["tomato", "potato"],
+    "symptoms": {
+      "leaves": "Dark brown concentric ring spots (target-board pattern) starting on older lower leaves",
+      "stem": "Dark sunken lesions near soil line on seedlings (collar rot)",
+      "roots": "No significant root symptoms",
+      "fruit": "Dark leathery sunken spots near stem end of fruit"
+    },
+    "favorable_conditions": "Warm temperature 24-29°C, alternating wet and dry periods, stressed plants",
+    "treatment": {"fungicide": "mancozeb", "cultural": "crop rotation, remove infected debris, adequate nutrition"}
+  },
+  "late_blight": {
+    "type": "fungal",
+    "pathogen": "Phytophthora infestans",
+    "crops": ["tomato", "potato"],
+    "symptoms": {
+      "leaves": "Large irregular water-soaked dark green-brown patches, white fuzzy growth on underside in humid conditions",
+      "stem": "Dark brown-black firm lesions, entire stem may collapse",
+      "roots": "Tubers show irregular brown-purple blotches on skin, reddish-brown granular rot inside",
+      "fruit": "Firm brown greasy-looking patches on green fruit"
+    },
+    "favorable_conditions": "Cool temperature 15-22°C, high humidity >90%, prolonged leaf wetness, rain",
+    "treatment": {"fungicide": "metalaxyl_mancozeb", "cultural": "destroy volunteer plants, improve air circulation, avoid overhead irrigation"}
+  },
+  "mosaic_virus": {
+    "type": "viral",
+    "pathogen": "Tomato mosaic virus (ToMV)",
+    "crops": ["tomato"],
+    "symptoms": {
+      "leaves": "Mottled light and dark green mosaic pattern, leaf distortion, curling, fern-like appearance",
+      "stem": "Stunted growth, sometimes internal browning",
+      "roots": "No significant root symptoms",
+      "fruit": "Uneven ripening, brown wall patches inside fruit, reduced size"
+    },
+    "favorable_conditions": "Mechanical transmission via tools and hands, seed-borne, high plant density",
+    "treatment": {"cultural": "remove_infected_plants_sanitize_tools_use_resistant_varieties", "note": "No chemical cure for viral diseases"}
+  },
+  "black_scurf": {
+    "type": "fungal",
+    "pathogen": "Rhizoctonia solani",
+    "crops": ["potato"],
+    "symptoms": {
+      "leaves": "Aerial tubers may form, purplish discoloration of upper leaves",
+      "stem": "Brown canker lesions at base, white fungal collar at soil line (white leg)",
+      "roots": "Black hard sclerotia on tuber surface like soil that won't wash off",
+      "fruit": "Misshapen tubers, cracked tubers, reduced tuber size"
+    },
+    "favorable_conditions": "Cool wet soil, heavy clay soil, infected seed tubers",
+    "treatment": {"fungicide": "pencycuron_seed_treatment", "cultural": "use clean seed, avoid planting in cold wet soil"}
+  },
+  "common_scab": {
+    "type": "bacterial",
+    "pathogen": "Streptomyces scabies",
+    "crops": ["potato"],
+    "symptoms": {
+      "leaves": "No significant leaf symptoms",
+      "stem": "No significant stem symptoms",
+      "roots": "Raised corky rough patches on tuber skin, shallow to deep pitted lesions",
+      "fruit": "Cosmetic damage to tubers, rough scabby surface"
+    },
+    "favorable_conditions": "Alkaline soil pH >5.5, dry soil during tuber formation, low organic matter",
+    "treatment": {"cultural": "lower_soil_ph_with_sulphur_maintain_moisture_during_tuber_set_green_manure", "note": "No effective chemical control"}
+  },
+  "white_rust": {
+    "type": "fungal",
+    "pathogen": "Albugo candida",
+    "crops": ["mustard"],
+    "symptoms": {
+      "leaves": "White raised blister-like pustules on lower leaf surface, yellow patches on upper surface",
+      "stem": "Swollen distorted stems and inflorescence (staghead formation)",
+      "roots": "No significant root symptoms",
+      "fruit": "Distorted pods with no seed formation in severe cases"
+    },
+    "favorable_conditions": "Cool temperature 12-20°C, high humidity, morning dew",
+    "treatment": {"fungicide": "metalaxyl_mancozeb", "cultural": "early sowing, resistant varieties, remove infected plants"}
+  },
+  "alternaria_blight": {
+    "type": "fungal",
+    "pathogen": "Alternaria brassicae",
+    "crops": ["mustard"],
+    "symptoms": {
+      "leaves": "Dark brown-black circular spots with concentric rings, spots coalesce causing leaf blight",
+      "stem": "Dark elongated streaks on stems",
+      "roots": "No significant root symptoms",
+      "fruit": "Dark spots on pods, premature pod shattering, shriveled seeds"
+    },
+    "favorable_conditions": "Warm humid weather 20-25°C, rain during flowering and pod formation",
+    "treatment": {"fungicide": "iprodione", "cultural": "early sowing, wider spacing, remove crop debris"}
+  },
+  "downy_mildew": {
+    "type": "fungal",
+    "pathogen": "Hyaloperonospora parasitica",
+    "crops": ["mustard"],
+    "symptoms": {
+      "leaves": "Purplish-brown irregular patches on upper surface, white-grey downy growth on lower surface",
+      "stem": "White fungal growth on young stems, stunted growth",
+      "roots": "No significant root symptoms",
+      "fruit": "Distorted inflorescence, poor pod set"
+    },
+    "favorable_conditions": "Cool moist weather 10-18°C, heavy dew, fog",
+    "treatment": {"fungicide": "metalaxyl", "cultural": "resistant varieties, proper drainage, avoid overcrowding"}
+  }
+}

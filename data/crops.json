@@ -1,0 +1,44 @@
+{
+  "rice": {
+    "season": "kharif",
+    "growth_stages": ["seedling", "vegetative", "flowering", "grain_filling"],
+    "diseases": ["blast", "bacterial_blight", "sheath_rot"],
+    "pests": ["stem_borer", "leaf_folder"],
+    "common_deficiencies": ["nitrogen", "zinc", "iron"]
+  },
+  "wheat": {
+    "season": "rabi",
+    "growth_stages": ["seedling", "tillering", "flowering", "grain_filling"],
+    "diseases": ["rust", "smut", "karnal_bunt"],
+    "pests": ["aphid", "armyworm"],
+    "common_deficiencies": ["nitrogen", "phosphorus", "manganese"]
+  },
+  "cotton": {
+    "season": "kharif",
+    "growth_stages": ["seedling", "vegetative", "flowering", "boll_formation"],
+    "diseases": ["wilt", "leaf_curl", "grey_mildew"],
+    "pests": ["bollworm", "whitefly", "aphid"],
+    "common_deficiencies": ["potassium", "boron", "magnesium"]
+  },
+  "tomato": {
+    "season": "rabi",
+    "growth_stages": ["seedling", "vegetative", "flowering", "fruiting"],
+    "diseases": ["early_blight", "late_blight", "mosaic_virus"],
+    "pests": ["fruit_borer", "whitefly"],
+    "common_deficiencies": ["calcium", "potassium", "magnesium"]
+  },
+  "potato": {
+    "season": "rabi",
+    "growth_stages": ["sprouting", "vegetative", "tuber_initiation", "maturation"],
+    "diseases": ["late_blight", "black_scurf", "common_scab"],
+    "pests": ["tuber_moth", "aphid"],
+    "common_deficiencies": ["potassium", "phosphorus", "manganese"]
+  },
+  "mustard": {
+    "season": "rabi",
+    "growth_stages": ["seedling", "rosette", "flowering", "pod_formation"],
+    "diseases": ["white_rust", "alternaria_blight", "downy_mildew"],
+    "pests": ["aphid", "painted_bug"],
+    "common_deficiencies": ["sulphur", "boron", "zinc"]
+  }
+}

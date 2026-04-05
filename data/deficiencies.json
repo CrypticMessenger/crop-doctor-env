@@ -1,0 +1,112 @@
+{
+  "nitrogen": {
+    "symbol": "N",
+    "symptoms": {
+      "leaves": "Uniform pale yellow-green color starting from older lower leaves, progressing upward",
+      "stem": "Thin weak stems, reduced tillering/branching",
+      "roots": "Reduced root growth",
+      "growth": "Stunted overall growth, pale green canopy"
+    },
+    "soil_indicator": {"npk_n": "low", "threshold": "below 250 kg/ha available N"},
+    "treatment": {"fertilizer": "urea_or_ammonium_sulphate", "rate": "40-60 kg N/ha as top dressing"}
+  },
+  "phosphorus": {
+    "symbol": "P",
+    "symptoms": {
+      "leaves": "Dark green to purplish-red discoloration on older leaves, leaves may curl",
+      "stem": "Thin stems, delayed maturity",
+      "roots": "Poor root development, reduced root branching",
+      "growth": "Stunted growth, delayed flowering and fruiting"
+    },
+    "soil_indicator": {"npk_p": "low", "threshold": "below 10 kg/ha available P"},
+    "treatment": {"fertilizer": "single_super_phosphate_or_DAP", "rate": "40-60 kg P2O5/ha basal application"}
+  },
+  "potassium": {
+    "symbol": "K",
+    "symptoms": {
+      "leaves": "Brown scorching and curling of leaf tips and margins starting from older leaves",
+      "stem": "Weak stems prone to lodging",
+      "roots": "Reduced root growth",
+      "growth": "Poor fruit development, weak disease resistance, small fruits"
+    },
+    "soil_indicator": {"npk_k": "low", "threshold": "below 120 kg/ha available K"},
+    "treatment": {"fertilizer": "muriate_of_potash", "rate": "40-60 kg K2O/ha"}
+  },
+  "zinc": {
+    "symbol": "Zn",
+    "symptoms": {
+      "leaves": "Dusty brown spots on upper leaves in rice (khaira disease), interveinal chlorosis, small narrow leaves",
+      "stem": "Shortened internodes, stunted growth",
+      "roots": "Reduced root growth",
+      "growth": "Delayed maturity, reduced tillering in rice"
+    },
+    "soil_indicator": {"micronutrient_zn": "low", "threshold": "below 0.6 ppm DTPA-Zn"},
+    "treatment": {"fertilizer": "zinc_sulphate", "rate": "25 kg ZnSO4/ha soil application or 0.5% foliar spray"}
+  },
+  "iron": {
+    "symbol": "Fe",
+    "symptoms": {
+      "leaves": "Interveinal chlorosis on young leaves — veins remain green while tissue between turns yellow-white",
+      "stem": "No significant stem symptoms",
+      "roots": "No significant root symptoms",
+      "growth": "New growth pale yellow to white, older leaves remain green"
+    },
+    "soil_indicator": {"micronutrient_fe": "low", "threshold": "below 4.5 ppm DTPA-Fe"},
+    "treatment": {"fertilizer": "ferrous_sulphate", "rate": "0.5% FeSO4 foliar spray, or 50 kg/ha soil application with organic matter"}
+  },
+  "manganese": {
+    "symbol": "Mn",
+    "symptoms": {
+      "leaves": "Interveinal chlorosis on younger leaves with tan-gray spots, leaves appear speckled",
+      "stem": "No significant stem symptoms",
+      "roots": "No significant root symptoms",
+      "growth": "Reduced growth, delayed maturity"
+    },
+    "soil_indicator": {"micronutrient_mn": "low", "threshold": "below 2.0 ppm DTPA-Mn"},
+    "treatment": {"fertilizer": "manganese_sulphate", "rate": "0.5% MnSO4 foliar spray or 25 kg/ha soil application"}
+  },
+  "sulphur": {
+    "symbol": "S",
+    "symptoms": {
+      "leaves": "Uniform yellowing of young leaves (unlike nitrogen which starts from old leaves)",
+      "stem": "Thin stems, reduced branching",
+      "roots": "No significant root symptoms",
+      "growth": "Stunted growth, delayed flowering, reduced oil content in oilseeds"
+    },
+    "soil_indicator": {"micronutrient_s": "low", "threshold": "below 10 ppm available S"},
+    "treatment": {"fertilizer": "gypsum_or_ammonium_sulphate", "rate": "20-40 kg S/ha"}
+  },
+  "boron": {
+    "symbol": "B",
+    "symptoms": {
+      "leaves": "Thickened brittle leaves, distorted and curled new growth",
+      "stem": "Hollow stem, cracked stem in brassicas",
+      "roots": "Brown heart in root vegetables",
+      "growth": "Poor flowering, flower drop, poor fruit/seed set"
+    },
+    "soil_indicator": {"micronutrient_b": "low", "threshold": "below 0.5 ppm hot-water extractable B"},
+    "treatment": {"fertilizer": "borax", "rate": "10 kg borax/ha soil application or 0.2% foliar spray"}
+  },
+  "calcium": {
+    "symbol": "Ca",
+    "symptoms": {
+      "leaves": "Distorted and hooked new leaves, tip burn on young leaves",
+      "stem": "Weak cell walls, stem cracking",
+      "roots": "Stunted root tips, poor root development",
+      "growth": "Blossom end rot in tomato, bitter pit in apple"
+    },
+    "soil_indicator": {"soil_ph": "low_acidic", "threshold": "soil pH below 5.5, low exchangeable Ca"},
+    "treatment": {"fertilizer": "calcium_nitrate_or_gypsum", "rate": "calcium nitrate foliar spray 0.5%, or lime application to raise pH"}
+  },
+  "magnesium": {
+    "symbol": "Mg",
+    "symptoms": {
+      "leaves": "Interveinal chlorosis on older leaves — veins stay green, tissue between turns yellow, may turn reddish-purple",
+      "stem": "No significant stem symptoms",
+      "roots": "No significant root symptoms",
+      "growth": "Premature leaf drop, reduced fruit quality"
+    },
+    "soil_indicator": {"micronutrient_mg": "low", "threshold": "below 1.5 meq/100g exchangeable Mg"},
+    "treatment": {"fertilizer": "magnesium_sulphate", "rate": "0.5% MgSO4 foliar spray or 25 kg/ha soil application"}
+  }
+}
