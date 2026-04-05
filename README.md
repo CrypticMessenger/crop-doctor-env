@@ -1,3 +1,14 @@
+---
+title: CropDoctorEnv
+emoji: 🌾
+colorFrom: green
+colorTo: yellow
+sdk: docker
+app_port: 7860
+tags:
+  - openenv
+---
+
 # 🌾 CropDoctorEnv: AI Agricultural Disease Diagnosis
 
 An OpenEnv RL environment where AI agents learn to diagnose crop diseases in Indian farms — investigating symptoms, running soil and lab tests, and recommending treatments under real-world budget and time constraints.
