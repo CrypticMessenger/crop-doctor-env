@@ -228,11 +228,11 @@ Tested with Qwen 2.5 72B Instruct via HuggingFace Inference API:
 
 | Task | Score | Steps | Budget Used | Key Behavior |
 |------|-------|-------|-------------|-------------|
-| **Easy** | 0.850 | 12 | ₹2,700 | Correctly identified aphid, good investigation flow |
-| **Medium** | 0.500 | 15 | ₹4,300 | Found downy mildew but missed boron deficiency |
-| **Hard** | 0.266 | 18 | ₹6,100 | Found 1 of 3 problems, wasted budget on red herring |
+| **Easy** | 0.650 | 4 | ₹2,000 | Identified bacterial blight correctly, submitted quickly |
+| **Medium** | 0.345 | 5 | ₹2,100 | Found sheath rot but missed nutrient deficiency entirely |
+| **Hard** | 0.327 | 6 | ₹3,500 | Found leaf folder + bacterial blight, missed deficiency |
 
-**Significant headroom for RL training** — especially on medium (+41%) and hard (+61%) tasks where the agent must learn to look deeper.
+**The agent submits too early.** It diagnoses after 4-6 steps without running soil tests, so it consistently misses nutrient deficiencies. This is exactly the behavior RL training would fix — teaching the agent to investigate deeper before concluding.
 
 ---
 
