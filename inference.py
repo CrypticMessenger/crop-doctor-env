@@ -10,8 +10,8 @@ from openai import OpenAI
 from client import CropDoctorEnv
 from models import CropAction
 
-LOCAL_IMAGE_NAME = os.getenv("LOCAL_IMAGE_NAME") or os.getenv("IMAGE_NAME")
-HF_TOKEN = os.getenv("API_KEY") or os.getenv("HF_TOKEN")
+IMAGE_NAME = os.getenv("IMAGE_NAME")
+API_KEY = os.getenv("API_KEY") or os.getenv("HF_TOKEN")
 API_BASE_URL = os.getenv("API_BASE_URL") or "https://router.huggingface.co/v1"
 MODEL_NAME = os.getenv("MODEL_NAME") or "Qwen/Qwen2.5-72B-Instruct"
 BENCHMARK = "crop_doctor_env"
@@ -112,7 +112,7 @@ def get_action(client: OpenAI, obs_dict: dict, history: list) -> tuple:
 
 
 async def run_task(task_id: str, max_steps: int) -> float:
-    client = OpenAI(base_url=API_BASE_URL, api_key=HF_TOKEN)
+    client = OpenAI(base_url=API_BASE_URL, api_key=API_KEY)
     env = None
     rewards = []
     steps_taken = 0
@@ -122,8 +122,8 @@ async def run_task(task_id: str, max_steps: int) -> float:
     log_start(task=task_id, env=BENCHMARK, model=MODEL_NAME)
 
     try:
-        if LOCAL_IMAGE_NAME:
-            env = await CropDoctorEnv.from_docker_image(LOCAL_IMAGE_NAME)
+        if IMAGE_NAME:
+            env = await CropDoctorEnv.from_docker_image(IMAGE_NAME)
         else:
             base_url = os.getenv("HF_SPACE_URL", "http://localhost:7860")
             env = CropDoctorEnv(base_url=base_url)
