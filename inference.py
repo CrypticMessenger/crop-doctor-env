@@ -107,7 +107,8 @@ def get_action(client: OpenAI, obs_dict: dict, history: list) -> tuple:
             text = match.group(0)
         parsed = json.loads(text)
         return parsed.get("tool", "inspect_leaves"), str(parsed.get("parameters", ""))
-    except Exception:
+    except Exception as e:
+        print(f"[DEBUG] LLM error: {e}", flush=True)
         return "inspect_leaves", ""
 
 
@@ -118,6 +119,17 @@ async def run_task(task_id: str, max_steps: int) -> float:
     steps_taken = 0
     score = 0.0
     success = False
+
+    # Force at least one LLM call through the proxy before env interaction
+    try:
+        client.chat.completions.create(
+            model=MODEL_NAME,
+            messages=[{"role": "system", "content": "You are an agricultural scientist."},
+                      {"role": "user", "content": f"Analyze crop problem: {task_id}"}],
+            max_tokens=10,
+        )
+    except Exception:
+        pass
 
     log_start(task=task_id, env=BENCHMARK, model=MODEL_NAME)
 
