@@ -165,7 +165,7 @@ async def run_task(task_id: str, max_steps: int) -> float:
                 break
 
         terminal = rewards[-1] if rewards else 0.0
-        score = max(0.0, min(1.0, terminal))
+        score = max(0.01, min(0.99, terminal))
         success = score >= 0.3
 
     except Exception as e:
