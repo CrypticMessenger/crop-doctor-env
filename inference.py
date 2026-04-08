@@ -48,7 +48,7 @@ def log_step(step: int, action: str, reward: float, done: bool, error: Optional[
 
 def log_end(success: bool, steps: int, score: float, rewards: List[float]) -> None:
     rewards_str = ",".join(f"{r:.2f}" for r in rewards)
-    print(f"[END] success={str(success).lower()} steps={steps} score={score:.3f} rewards={rewards_str}", flush=True)
+    print(f"[END] success={str(success).lower()} steps={steps} score={score:.2f} rewards={rewards_str}", flush=True)
 
 
 def build_prompt(obs_dict: dict, history: list) -> str:
@@ -115,7 +115,7 @@ async def run_task(task_id: str, max_steps: int) -> float:
     if IMAGE_NAME:
         env = await CropDoctorEnv.from_docker_image(IMAGE_NAME)
     else:
-        base_url = os.getenv("HF_SPACE_URL", "http://localhost:8000")
+        base_url = os.getenv("HF_SPACE_URL", "http://localhost:7860")
         env = CropDoctorEnv(base_url=base_url)
         await env.__aenter__()
 
