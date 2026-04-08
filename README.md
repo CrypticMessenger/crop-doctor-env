@@ -19,7 +19,7 @@ It had to learn what every agricultural scientist at India's 731 Krishi Vigyan K
 
 **India loses ₹50,000 crore annually to crop diseases.** 60% of the population depends on agriculture. A single misdiagnosis — treating a fungal infection with pesticide, or missing a hidden nutrient deficiency under obvious pest damage — can destroy an entire season's harvest. CropDoctorEnv trains AI agents to think like agricultural scientists: forming hypotheses, gathering evidence under real-world constraints, and making treatment decisions that could save livelihoods.
 
-> Built with [OpenEnv v0.2](https://github.com/meta-pytorch/OpenEnv) | Deployed on [HF Spaces](https://huggingface.co/spaces/celex4/crop-doctor-env) | Architecturally inspired by [BioExp](https://cerebralvalley.ai/e/openenv-hackathon-sf/hackathon/gallery) (2nd place, $9K, OpenEnv Hackathon SF)
+> Built with [OpenEnv v0.2](https://github.com/meta-pytorch/OpenEnv) | Deployed on [HF Spaces](https://huggingface.co/spaces/celex4/crop-doctor-env)
 
 ---
 
@@ -317,7 +317,7 @@ crop_doctor_env/
 ## Future Work (Round 2)
 
 ### Adversarial Curriculum
-Instead of fixed easy/medium/hard, use an LLM designer that generates scenarios targeting the agent's tracked weaknesses — the technique that pushed [BioExp](https://cerebralvalley.ai/e/openenv-hackathon-sf/hackathon/gallery) to 2nd place at the SF hackathon.
+Instead of fixed easy/medium/hard, use an LLM designer that generates scenarios targeting the agent's tracked weaknesses.
 
 ### GiGPO Step-Level Credit Assignment
 Standard GRPO assigns one advantage per episode. [GiGPO (Feng et al., 2026)](https://arxiv.org/html/2505.10978v1) compares actions from the same state across rollouts, achieving +12% over GRPO on ALFWorld. CropDoctorEnv naturally produces anchor states (same leaf symptoms → different tool choices), making it directly compatible.
@@ -336,7 +336,6 @@ Integrate real Indian agricultural data — village locations, soil maps, region
 ## References
 
 - [OpenEnv Framework](https://github.com/meta-pytorch/OpenEnv) — Environment spec
-- [BioExp](https://cerebralvalley.ai/e/openenv-hackathon-sf/hackathon/gallery) — Architectural inspiration (2nd place, $9K, OpenEnv Hackathon SF)
 - [GiGPO](https://arxiv.org/html/2505.10978v1) — Step-level credit assignment for LLM agents
 - [AWM](https://arxiv.org/html/2602.10090v2) — Code-augmented verification for RL environments
 - [HF TRL](https://huggingface.co/docs/trl) — GRPO implementation
