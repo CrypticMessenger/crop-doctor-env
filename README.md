@@ -261,7 +261,7 @@ async with CropDoctorEnv(base_url="https://celex4-crop-doctor-env.hf.space") as 
 ## Running Inference
 
 ```bash
-export HF_TOKEN="your-token"
+export OPENAI_API_KEY="your-key"       # or HF_TOKEN / API_KEY
 export MODEL_NAME="Qwen/Qwen2.5-72B-Instruct"
 python inference.py
 ```
@@ -279,17 +279,14 @@ Output:
 
 ## Deployment
 
-Deployed as a Docker-based HF Space:
+Deployed as a Docker-based HF Space. To run locally:
 
-```dockerfile
-FROM python:3.11-slim
-WORKDIR /app
-COPY server/requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-COPY . .
-EXPOSE 7860
-CMD ["python", "-m", "uvicorn", "server.app:app", "--host", "0.0.0.0", "--port", "7860"]
+```bash
+docker build -t crop-doctor-env .
+docker run -p 7860:7860 crop-doctor-env
 ```
+
+The server will be available at `http://localhost:7860`.
 
 ---
 

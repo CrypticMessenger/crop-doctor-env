@@ -11,12 +11,13 @@ from client import CropDoctorEnv
 from models import CropAction
 
 IMAGE_NAME = os.getenv("IMAGE_NAME")
-API_KEY = os.getenv("HF_TOKEN") or os.getenv("API_KEY")
+API_KEY = os.getenv("OPENAI_API_KEY") or os.getenv("HF_TOKEN") or os.getenv("API_KEY")
 API_BASE_URL = os.getenv("API_BASE_URL") or "https://router.huggingface.co/v1"
 MODEL_NAME = os.getenv("MODEL_NAME") or "Qwen/Qwen2.5-72B-Instruct"
 BENCHMARK = "crop_doctor_env"
-TEMPERATURE = 0.4
+TEMPERATURE = 0.0
 MAX_TOKENS = 300
+SEED = 42
 
 TASKS = [
     {"task_id": "easy", "max_steps": 15},
@@ -48,7 +49,7 @@ def log_step(step: int, action: str, reward: float, done: bool, error: Optional[
 
 def log_end(success: bool, steps: int, score: float, rewards: List[float]) -> None:
     rewards_str = ",".join(f"{r:.2f}" for r in rewards)
-    print(f"[END] success={str(success).lower()} steps={steps} score={score:.2f} rewards={rewards_str}", flush=True)
+    print(f"[END] success={str(success).lower()} steps={steps} score={score:.3f} rewards={rewards_str}", flush=True)
 
 
 def build_prompt(obs_dict: dict, history: list) -> str:
@@ -88,6 +89,7 @@ def get_action(client: OpenAI, obs_dict: dict, history: list) -> tuple:
             ],
             temperature=TEMPERATURE,
             max_tokens=MAX_TOKENS,
+            seed=SEED,
         )
         text = (resp.choices[0].message.content or "").strip()
         # Robust JSON extraction
@@ -128,7 +130,7 @@ async def run_task(task_id: str, max_steps: int) -> float:
     log_start(task=task_id, env=BENCHMARK, model=MODEL_NAME)
 
     try:
-        result = await env.reset(task_id=task_id)
+        result = await env.reset(task_id=task_id, seed=SEED)
         obs_dict = result.observation.model_dump() if hasattr(result.observation, 'model_dump') else {}
 
         for step in range(1, max_steps + 1):

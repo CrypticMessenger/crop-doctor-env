@@ -8,3 +8,4 @@ test_llm.py
 generate_charts.py
 *.png
 .DS_Store
+.idea/
