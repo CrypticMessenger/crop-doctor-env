@@ -10,7 +10,7 @@ from openai import OpenAI
 from client import CropDoctorEnv
 from models import CropAction
 
-LOCAL_IMAGE_NAME = os.getenv("LOCAL_IMAGE_NAME")
+LOCAL_IMAGE_NAME = os.getenv("LOCAL_IMAGE_NAME") or os.getenv("IMAGE_NAME")
 HF_TOKEN = os.getenv("HF_TOKEN")
 API_BASE_URL = os.getenv("API_BASE_URL") or "https://router.huggingface.co/v1"
 MODEL_NAME = os.getenv("MODEL_NAME") or "Qwen/Qwen2.5-72B-Instruct"
@@ -113,15 +113,7 @@ def get_action(client: OpenAI, obs_dict: dict, history: list) -> tuple:
 
 async def run_task(task_id: str, max_steps: int) -> float:
     client = OpenAI(base_url=API_BASE_URL, api_key=HF_TOKEN)
-
-    if LOCAL_IMAGE_NAME:
-        env = await CropDoctorEnv.from_docker_image(LOCAL_IMAGE_NAME)
-    else:
-        base_url = os.getenv("HF_SPACE_URL", "http://localhost:7860")
-        env = CropDoctorEnv(base_url=base_url)
-        await env.__aenter__()
-
-    history = []
+    env = None
     rewards = []
     steps_taken = 0
     score = 0.0
@@ -130,7 +122,15 @@ async def run_task(task_id: str, max_steps: int) -> float:
     log_start(task=task_id, env=BENCHMARK, model=MODEL_NAME)
 
     try:
-        result = await env.reset(task_id=task_id, seed=SEED)
+        if LOCAL_IMAGE_NAME:
+            env = await CropDoctorEnv.from_docker_image(LOCAL_IMAGE_NAME)
+        else:
+            base_url = os.getenv("HF_SPACE_URL", "http://localhost:7860")
+            env = CropDoctorEnv(base_url=base_url)
+            await env.__aenter__()
+
+        history = []
+        result = await env.reset(task_id=task_id)
         obs_dict = result.observation.model_dump() if hasattr(result.observation, 'model_dump') else {}
 
         for step in range(1, max_steps + 1):
@@ -152,17 +152,19 @@ async def run_task(task_id: str, max_steps: int) -> float:
             if done:
                 break
 
-        # Terminal score is the last reward (from submit_diagnosis or max_steps)
-        # Per-step rewards are shaping signals; final score is the terminal grade
         terminal = rewards[-1] if rewards else 0.0
         score = max(0.0, min(1.0, terminal))
         success = score >= 0.3
 
+    except Exception as e:
+        print(f"[DEBUG] error: {e}", flush=True)
+
     finally:
-        try:
-            await env.close()
-        except Exception:
-            pass
+        if env:
+            try:
+                await env.close()
+            except Exception:
+                pass
         log_end(success=success, steps=steps_taken, score=score, rewards=rewards)
 
     return score
