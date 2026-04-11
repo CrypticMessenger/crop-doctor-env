@@ -69,7 +69,7 @@ class CropDoctorEnvironment(Environment):
         ep = self._episode
         if not ep:
             return CropObservation(
-                done=True, reward=0.0,
+                done=True, reward=0.01,
                 crop_info="", tool_result="Error: call reset() before step().",
                 findings_so_far="", available_tools=[],
                 budget_remaining=0, days_remaining=0, lab_slots_remaining=0,
@@ -80,7 +80,7 @@ class CropDoctorEnvironment(Environment):
 
         # Check if episode already done
         if self._diagnosis_submitted:
-            return self._make_obs(0.0, True, "Episode already ended.", "Diagnosis was already submitted.")
+            return self._make_obs(0.01, True, "Episode already ended.", "Diagnosis was already submitted.")
 
         # Check tool exists
         if tool_name not in TOOL_REGISTRY and tool_name != "submit_diagnosis":

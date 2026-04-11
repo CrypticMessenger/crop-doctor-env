@@ -155,4 +155,4 @@ def compute_terminal_score(episode: dict, findings: list, diagnosis_params: str 
 
     total = (id_score + treat_score + evidence_score + efficiency_score
              + completeness - spam_penalty - violation_penalty - step_penalty)
-    return round(min(1.0, max(0.0, total)), 4)
+    return round(min(0.99, max(0.01, total)), 4)
