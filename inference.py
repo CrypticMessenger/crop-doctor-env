@@ -120,17 +120,6 @@ async def run_task(task_id: str, max_steps: int) -> float:
     score = 0.0
     success = False
 
-    # Force at least one LLM call through the proxy before env interaction
-    try:
-        client.chat.completions.create(
-            model=MODEL_NAME,
-            messages=[{"role": "system", "content": "You are an agricultural scientist."},
-                      {"role": "user", "content": f"Analyze crop problem: {task_id}"}],
-            max_tokens=10,
-        )
-    except Exception:
-        pass
-
     log_start(task=task_id, env=BENCHMARK, model=MODEL_NAME)
 
     try:
