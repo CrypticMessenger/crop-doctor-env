@@ -170,7 +170,7 @@ class CropDoctorEnvironment(Environment):
 
     def _make_obs(self, reward: float, done: bool, tool_result: str, message: str) -> CropObservation:
         ep = self._episode
-        clamped = round(min(0.99, max(0.01, reward)), 4)
+        clamped = round(min(0.99, max(0.01, reward)), 4) if done else round(reward, 4)
         if not ep:
             return CropObservation(done=done, reward=clamped, crop_info="",
                 tool_result=tool_result, findings_so_far="", available_tools=[],
