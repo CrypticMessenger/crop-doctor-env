@@ -85,7 +85,7 @@ class CropDoctorEnvironment(Environment):
         # Check tool exists
         if tool_name not in TOOL_REGISTRY and tool_name != "submit_diagnosis":
             self._state.violations += 1
-            return self._make_obs(-0.5, False, f"Unknown tool: {tool_name}", f"Tool '{tool_name}' does not exist. Use one of the available tools.")
+            return self._make_obs(0.05, False, f"Unknown tool: {tool_name}", f"Tool '{tool_name}' does not exist. Use one of the available tools.")
 
         # Check max steps
         if self._state.step_count > ep["max_steps"]:
@@ -103,7 +103,7 @@ class CropDoctorEnvironment(Environment):
         violation = self._check_dependencies(tool_name, reg)
         if violation:
             self._state.violations += 1
-            return self._make_obs(-1.0, False, violation, f"Rule violation: {violation}")
+            return self._make_obs(0.01, False, violation, f"Rule violation: {violation}")
 
         # Check resources
         fn = reg["fn"]
@@ -111,14 +111,14 @@ class CropDoctorEnvironment(Environment):
 
         if reg["category"] == "lab":
             if self._state.lab_slots_used >= ep["lab_slots"]:
-                return self._make_obs(-0.2, False, "No lab slots remaining.", "All 3 lab slots used.")
+                return self._make_obs(0.10, False, "No lab slots remaining.", "All 3 lab slots used.")
             self._state.lab_slots_used += 1
 
         if self._state.budget_used + cost > ep["budget"]:
-            return self._make_obs(-0.1, False, "Insufficient budget.", f"Need ₹{cost} but only ₹{ep['budget'] - self._state.budget_used} left.")
+            return self._make_obs(0.10, False, "Insufficient budget.", f"Need ₹{cost} but only ₹{ep['budget'] - self._state.budget_used} left.")
 
         if self._state.days_used + days > ep["days"]:
-            return self._make_obs(-0.1, False, "Not enough field days.", f"Need {days}d but only {ep['days'] - self._state.days_used:.1f}d left.")
+            return self._make_obs(0.10, False, "Not enough field days.", f"Need {days}d but only {ep['days'] - self._state.days_used:.1f}d left.")
 
         # Execute tool
         self._state.budget_used += cost
@@ -145,7 +145,7 @@ class CropDoctorEnvironment(Environment):
         tests = [t for t in self._tools_used if t in paid_tests]
         if not inspections or not tests:
             self._state.violations += 1
-            return self._make_obs(-1.0, False,
+            return self._make_obs(0.01, False,
                 "Cannot submit diagnosis without at least 1 field inspection and 1 test.",
                 "Rule violation: insufficient evidence.")
 

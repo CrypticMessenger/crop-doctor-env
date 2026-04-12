@@ -48,7 +48,7 @@ def log_step(step: int, action: str, reward: float, done: bool, error: Optional[
     print(f"[STEP] step={step} action={action} reward={reward:.2f} done={str(done).lower()} error={error_val}", flush=True)
 
 def log_end(success: bool, steps: int, score: float, rewards: List[float]) -> None:
-    rewards_str = ",".join(f"{max(0.01, min(0.99, r)):.2f}" for r in rewards)
+    rewards_str = ",".join(f"{r:.2f}" for r in rewards)
     print(f"[END] success={str(success).lower()} steps={steps} score={score:.3f} rewards={rewards_str}", flush=True)
 
 
@@ -164,8 +164,10 @@ async def run_task(task_id: str, max_steps: int) -> float:
             if done:
                 break
 
-        terminal = rewards[-1] if rewards else 0.0
-        score = max(0.01, min(0.99, terminal))
+        if rewards:
+            score = round(min(0.99, max(0.01, sum(rewards) / len(rewards))), 4)
+        else:
+            score = 0.50
         success = score >= 0.3
 
     except Exception as e:

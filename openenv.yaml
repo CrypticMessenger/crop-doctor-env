@@ -1,3 +1,14 @@
 name: crop_doctor_env
 version: "1.0.0"
 description: "AI Agricultural Disease Diagnosis — an RL environment where agents investigate crop failures in Indian farms using 21 diagnostic tools under budget and time constraints."
+
+tasks:
+  - id: easy
+    description: "Diagnose a single disease or pest affecting a crop"
+    grader: server.graders.easy_grader
+  - id: medium
+    description: "Diagnose a disease plus a nutrient deficiency with one red herring"
+    grader: server.graders.medium_grader
+  - id: hard
+    description: "Diagnose a pest, deficiency, and disease with multiple red herrings"
+    grader: server.graders.hard_grader

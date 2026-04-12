@@ -33,8 +33,8 @@ ALL_PROBLEM_NAMES = ALL_DISEASE_NAMES | ALL_PEST_NAMES | ALL_DEFICIENCY_NAMES
 
 
 def compute_step_reward(tool_name: str, result_text: str, episode: dict, tools_used: list) -> float:
-    """Per-step shaped reward."""
-    reward = 0.0
+    """Per-step shaped reward. All values in (0.10, 0.90)."""
+    reward = 0.40  # base: neutral action
     problems = episode["problems"]
     problem_names = {p["name"] for p in problems}
     result_lower = result_text.lower()
@@ -74,7 +74,7 @@ def compute_step_reward(tool_name: str, result_text: str, episode: dict, tools_u
     if tool_name in knowledge_tools and not any(t in field_tools for t in tools_used):
         reward -= 0.04
 
-    return round(reward, 4)
+    return round(min(0.90, max(0.10, reward)), 4)
 
 
 def _count_spam(diag_text: str, actual_problems: set) -> int:
@@ -156,3 +156,27 @@ def compute_terminal_score(episode: dict, findings: list, diagnosis_params: str 
     total = (id_score + treat_score + evidence_score + efficiency_score
              + completeness - spam_penalty - violation_penalty - step_penalty)
     return round(min(0.99, max(0.01, total)), 4)
+
+
+# ── Standalone grader functions for OpenEnv validator ─────────────────────────
+
+def easy_grader(trajectory: dict = None) -> float:
+    if not trajectory or not trajectory.get("rewards"):
+        return 0.50
+    rewards = trajectory["rewards"]
+    score = sum(rewards) / len(rewards)
+    return round(min(0.99, max(0.01, score)), 4)
+
+def medium_grader(trajectory: dict = None) -> float:
+    if not trajectory or not trajectory.get("rewards"):
+        return 0.50
+    rewards = trajectory["rewards"]
+    score = sum(rewards) / len(rewards)
+    return round(min(0.99, max(0.01, score)), 4)
+
+def hard_grader(trajectory: dict = None) -> float:
+    if not trajectory or not trajectory.get("rewards"):
+        return 0.50
+    rewards = trajectory["rewards"]
+    score = sum(rewards) / len(rewards)
+    return round(min(0.99, max(0.01, score)), 4)
