@@ -170,8 +170,9 @@ class CropDoctorEnvironment(Environment):
 
     def _make_obs(self, reward: float, done: bool, tool_result: str, message: str) -> CropObservation:
         ep = self._episode
+        clamped = round(min(0.99, max(0.01, reward)), 4)
         if not ep:
-            return CropObservation(done=done, reward=round(reward, 4), crop_info="",
+            return CropObservation(done=done, reward=clamped, crop_info="",
                 tool_result=tool_result, findings_so_far="", available_tools=[],
                 budget_remaining=0, days_remaining=0, lab_slots_remaining=0,
                 step_number=0, message=message)
@@ -181,7 +182,7 @@ class CropDoctorEnvironment(Environment):
             message += f" ⚠️ WARNING: Only {steps_left} steps remaining! Consider submitting your diagnosis."
         return CropObservation(
             done=done,
-            reward=round(reward, 4),
+            reward=clamped,
             crop_info=f"Crop: {ep['crop']} | Stage: {ep['growth_stage']} | Soil: {ep['soil_type']}",
             tool_result=tool_result,
             findings_so_far=findings_text,
